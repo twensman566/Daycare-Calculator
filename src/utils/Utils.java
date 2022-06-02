@@ -1,10 +1,12 @@
 package utils;
 
+import edits.EditDriver;
 import objects.Child;
 import objects.License;
 import objects.LicenseConstants;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 
 public class Utils {
@@ -13,7 +15,13 @@ public class Utils {
      * Probably can just absolute the value... so we will do that.
      */
     public static Integer getAgeInYears(LocalDate date) {
-        return Math.abs(LocalDate.now().getYear() - date.getYear());
+
+
+        return Period.between(LocalDate.now(), date).getYears();
+    }
+
+    public static Integer getAgeInYears(LocalDate now, LocalDate date) {
+        return Period.between(now, date).getYears();
     }
 
     public static LocalDate getPriorAgeCategory(License license, LocalDate dateToCompareAgainst) {
@@ -57,15 +65,5 @@ public class Utils {
         }
 
         return str1.toLowerCase().contains(str2.toLowerCase());
-    }
-
-    public static List<Child> advanceChildrenOneMonth(List<Child> childList) {
-        List<Child> agedOneMonth = new ArrayList<>();
-        for (Child child : childList) {
-
-            child.getBirthDate().plusMonths(1);
-            agedOneMonth.add(child);
-        }
-        return agedOneMonth;
     }
 }

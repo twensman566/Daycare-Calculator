@@ -21,10 +21,17 @@ public class MinnesotaCalculator {
 
         License license = new License();
         license.setLicenseKey(LicenseConstants.Minnesota_2022.LICENSE_A.getLicenseKey());
+        Configuration configuration = new Configuration();
+
+        List<Child> childrenToBeAdded = new ArrayList<>();
+        childrenToBeAdded.add(new Child(LocalDate.of(2021, 11, 01), "", ""));
+
+        configuration.setChildrenToBeAdded(childrenToBeAdded);
 
         for (String test : testStuff.keySet()) {
-            Configuration configuration = new Configuration();
+
             configuration.setChildren(testStuff.get(test));
+
             configuration.setLicense(license);
 
             System.out.println(":Checking " + test);
@@ -32,7 +39,7 @@ public class MinnesotaCalculator {
             EditDriver editDriver = new EditDriver();
             editDriver.runGeneralEdits(configuration);
 
-
+            System.out.println("Running advancing edits");
             EditDriver editDriver1 = new EditDriver();
             editDriver1.runAdvancingEdits(configuration);
         }
@@ -44,74 +51,23 @@ public class MinnesotaCalculator {
 
     public void initTest() {
 
+
         List<Child> test1 = new ArrayList<>();
-        Child child = new Child(LocalDate.of(2022, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2021, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2020, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2019, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2018, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2017, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2016, 02, 01), "Child", "One");
-        test1.add(child);
+
+        test1.add(new Child(LocalDate.of(2021, 06, 04), "", ""));
+
+        test1.add(new Child(LocalDate.of(2021, 10, 04), "", ""));
+
+
+
+        test1.add(new Child(LocalDate.of(2015, 05, 30), "", ""));
+        test1.add(new Child(LocalDate.of(2015, 05, 30), "", ""));
+        test1.add(new Child(LocalDate.of(2015, 05, 30), "", ""));
 
         testStuff.put("test1", test1);
 
-        test1 = new ArrayList<>();
-        child = new Child(LocalDate.of(2022, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2022, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2022, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2022, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2022, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2022, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2021, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2020, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2019, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2019, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2019, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2019, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2019, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2019, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2019, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2018, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2017, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2016, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2016, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2016, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2016, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2016, 02, 01), "Child", "One");
-        test1.add(child);
-        child = new Child(LocalDate.of(2016, 02, 01), "Child", "One");
-        test1.add(child);
-
-        testStuff.put("test2", test1);
     }
+
 
     public static void main(String args[]) {
         MinnesotaCalculator calculator = new MinnesotaCalculator();

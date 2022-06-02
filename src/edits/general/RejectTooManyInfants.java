@@ -18,6 +18,7 @@ public class RejectTooManyInfants extends AbstractEdit {
         LocalDate ageCategoryAboveInfant = Utils.getNextAgeCategory(license, LicenseConstants.getInfantAgeForLicenseKey(license.getLicenseKey()));
         LocalDate infantAgeCategory = Utils.getPriorAgeCategory(license, LicenseConstants.getInfantAgeForLicenseKey(license.getLicenseKey()));
         Integer infantAge = Utils.getAgeInYears(infantAgeCategory);
+
         Integer aboveInfantAge = Utils.getAgeInYears(ageCategoryAboveInfant);
 
         if (childList == null) {
@@ -27,7 +28,7 @@ public class RejectTooManyInfants extends AbstractEdit {
         Integer infantLimit = LicenseConstants.getMaximumInfantAgeLimits(license.getLicenseKey());
         int counter = 0;
         for (Child child : childList) {
-            Integer thisChildsAgeInYears = Utils.getAgeInYears(child.getBirthDate());
+            Integer thisChildsAgeInYears = Utils.getAgeInYears(getNow(), child.getBirthDate());
 
             if (thisChildsAgeInYears >= infantAge && aboveInfantAge > thisChildsAgeInYears) {
                 counter++;

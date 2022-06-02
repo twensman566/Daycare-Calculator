@@ -27,7 +27,7 @@ public class RejectTooManyInfantAndToddlers extends AbstractEdit {
         Integer toddlerLimit = LicenseConstants.getMaximumToddlerInfantLimit(license.getLicenseKey());
         int counter = 0;
         for (Child child : childList) {
-            Integer thisChildsAgeInYears = Utils.getAgeInYears(child.getBirthDate());
+            Integer thisChildsAgeInYears =  Utils.getAgeInYears(getNow(),child.getBirthDate());
 
             if (thisChildsAgeInYears >= toddlerAge && aboveToddlerAge > thisChildsAgeInYears) {
                 counter++;

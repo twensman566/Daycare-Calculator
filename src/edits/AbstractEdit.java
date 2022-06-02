@@ -4,6 +4,7 @@ import objects.Child;
 import objects.Configuration;
 import objects.License;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public abstract class AbstractEdit {
@@ -19,6 +20,22 @@ public abstract class AbstractEdit {
 
     private List<Child> childrenToBeAdded;
 
+
+    private LocalDate now;
+
+
+    public LocalDate getNow() {
+        if (now == null) {
+            return LocalDate.now();
+        }
+
+        return now;
+    }
+
+    public void setNow(LocalDate now) {
+        this.now = now;
+    }
+
     public abstract void execute();
 
     public void init(Configuration configuration) {
@@ -31,6 +48,7 @@ public abstract class AbstractEdit {
             this.license = configuration.getLicense();
             this.childrenToBeAdded = configuration.getChildrenToBeAdded();
             this.configuration = configuration;
+            this.now = configuration.getNow();
         }
     }
 

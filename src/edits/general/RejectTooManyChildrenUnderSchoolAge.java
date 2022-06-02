@@ -27,7 +27,7 @@ public class RejectTooManyChildrenUnderSchoolAge extends AbstractEdit {
         Integer underSchoolAgeLimit = LicenseConstants.getMaximumUnderSchoolAgeLimits(license.getLicenseKey());
         int counter = 0;
         for (Child child : childList) {
-            Integer thisChildsAgeInYears = Utils.getAgeInYears(child.getBirthDate());
+            Integer thisChildsAgeInYears =  Utils.getAgeInYears(getNow(),child.getBirthDate());
 
             if (age > thisChildsAgeInYears) {
                 counter++;

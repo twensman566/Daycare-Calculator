@@ -51,7 +51,7 @@ public class EditDriver {
 
     public List<String> getAdvancingEditsToRun() {
         List<String> editsToRun = new ArrayList<>();
-        editsToRun.add("edits.general.RejectOverMaximumAmountOfChildren");
+        editsToRun.add("edits.general.WhenCanChildBeAddedToDaycare");
 
         return editsToRun;
     }
@@ -62,6 +62,7 @@ public class EditDriver {
         editsToRun.add("edits.general.RejectTooManyChildrenUnderSchoolAge");
         editsToRun.add("edits.general.RejectTooManyToddlers");
         editsToRun.add("edits.general.RejectTooManyInfantAndToddlers");
+        editsToRun.add("edits.general.RejectTooManyInfants");
 
         return editsToRun;
     }

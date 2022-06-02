@@ -1,5 +1,6 @@
 package objects;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,9 @@ public class Configuration {
     protected List<Child> children;
     protected License license;
     private List<Child> childrenToBeAdded;
+
+
+    private LocalDate now;
 
     private List<String> rejections;
 
@@ -21,6 +25,10 @@ public class Configuration {
 
     public void setRejections(List<String> rejections) {
         this.rejections = rejections;
+    }
+
+    public void clearRejections() {
+        rejections.clear();
     }
 
     public void addRejection(String string) {
@@ -55,5 +63,12 @@ public class Configuration {
         this.childrenToBeAdded = childrenToBeAdded;
     }
 
+    public LocalDate getNow() {
+        return now;
+    }
+
+    public void setNow(LocalDate now) {
+        this.now = now;
+    }
 
 }

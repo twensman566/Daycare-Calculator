@@ -11,6 +11,10 @@ public class Child {
     public Child() {
     }
 
+    public Child(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
     public Child(LocalDate birthDate, String firstName, String lastName) {
         this.birthDate = birthDate;
         this.firstName = firstName;
